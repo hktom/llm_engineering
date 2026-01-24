@@ -26,7 +26,7 @@ def fetch_website_contents(url):
         titles.extend(title)
 
     link = soup.find_all("a")
-    link_text = [l.get("href") for l in link]
+    link_text = [f"{url}/{l.get('href')}" for l in link]
     link_texts = "\n".join(link_text)
 
     return {"titles": titles, "links": link_texts}
